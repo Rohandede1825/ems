@@ -5,6 +5,8 @@ import App from './App.jsx';
 import AuthProvider from './context/AuthContext.jsx';
 import TextProvider from './context/TextContext.jsx';
 
+
+localStorage.clear();
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <TextProvider>
