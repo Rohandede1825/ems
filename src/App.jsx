@@ -1,33 +1,30 @@
-import React, {  useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import Login from './components/Auth/Login'
 import EmployeeDashboard from './components/Dashboard/EmployeeDashboard'
-import AdminDashboard from './components/Dashboard/AdminDashboard'
-import { getLocalStorage, setLocalStorage } from './utils/localStorage'
+import AdminDashboard from './components/Dashboard/AdminDashboard';
+import { AuthContext } from './context/AuthProvider'
 
-const App = ({}) => {
+const App = () => {
+  const [user, setUser] = useState(null);
 
+  const handleLogin = (email, passwoord) =>{
+    if(email === 'admin@gmail.com' && passwoord === 'admin'){
+      setUser('admin')
+    }else{
+      setUser('employee')
+    }
+    
+  }
 
-  // useEffect(() => {
-  //  setLocalStorage()
-  //  getLocalStorage()
-  // },)
-
-
-  const [user, setuser] = useState('')
-
-
-
+  
 
   return (
     <>
-      <Login />
-
-      {!user ? <Login /> : user === 'admin' ? <AdminDashboard /> : <EmployeeDashboard />}
-      {/* <EmployeeDashboard />
-      <AdminDashboard /> */}
+      {!user ? <Login  handleLogin={handleLogin}/> : ''}
+      {user == 'admin' ? <AdminDashboard /> : <EmployeeDashboard />}
     </>
   )
 }
-1.30
+
 
 export default App

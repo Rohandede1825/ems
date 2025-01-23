@@ -1,16 +1,13 @@
 import React, { useState } from 'react'
 
-const Login = () => {
+const Login = ({ handleLogin }) => {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        const email = e.target[0].value
-        const password = e.target[1].value
-        console.log(email, password)
-
+        handleLogin(email, password)
 
         setEmail('')
         setPassword('')
@@ -26,7 +23,7 @@ const Login = () => {
                     <input
                         value={email}
                         onChange={(e) => {
-                           setEmail(e.target.value)
+                            setEmail(e.target.value)
                         }
                         }
                         required className=' border-2 border-emerald-600 rounded-full text-xl py-3 px-4 my-4 outline bg-transparent  outline-none' type="email" placeholder='Enter the email' />
@@ -36,7 +33,7 @@ const Login = () => {
                         onChange={(e) => {
                             setPassword(e.target.value)
                         }}
-                     required className=' border-2 border-emerald-600 rounded-full text-xl py-3 px-4 my-4 outline bg-transparent outline-none' type="password" placeholder='Enter the passwoord' />
+                        required className=' border-2 border-emerald-600 rounded-full text-xl py-3 px-4 my-4 outline bg-transparent outline-none' type="password" placeholder='Enter the passwoord' />
                     <button className='bg-emerald-700 font-bold  p-2  rounded-lg text-white shadow-xl text-xl py-3 px-4 my-4'>Login</button>
                 </form>
             </div>

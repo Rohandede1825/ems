@@ -1,4 +1,4 @@
-const employee = [
+const employee= [
     {
       id: 1,
       email: "employee1@example.com",
@@ -165,13 +165,15 @@ const employee = [
 
 
 export const setLocalStorage = () => {
-    localStorage.setItem("employee", JSON.stringify(employee));
-    localStorage.setItem("admin", JSON.stringify(admin));
+    localStorage.setItem('employee', JSON.stringify(employee));
+    localStorage.setItem('admin', JSON.stringify(admin));
+   
 }
 
+
 export const getLocalStorage = () => {
-    const employee= JSON.parse(localStorage.getItem("employee"));
-    const admin = JSON.parse(localStorage.getItem("admin"));
-    console.log((employee))
-    console.log((admin))
+    const employee= JSON.parse(localStorage.getItem('employee'));
+    const admin = JSON.parse(localStorage.getItem('admin'));
+  
+    return {employee, admin};
 }
