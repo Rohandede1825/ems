@@ -3,7 +3,7 @@ import { getLocalStorage, setLocalStorage } from '../utils/localStorage'
 
 
 export const AuthContext = createContext();
-setLocalStorage();
+
 
 
 const AuthProvider = ({children}) => {
@@ -18,7 +18,7 @@ const AuthProvider = ({children}) => {
   
   return (
     <div>
-        <AuthContext.Provider value={authData}>
+        <AuthContext.Provider value={"rohan"}>
         {children}
         </AuthContext.Provider>
     </div>
